@@ -2,8 +2,7 @@ name: Node CD
 
 on:
   push:
-    paths:
-      - "**Dockerfile**"
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -57,7 +56,7 @@ jobs:
         name: webpack artifacts
         path: public
     - name: Build container image
-      uses: docker/build-push-action@v1
+      uses: docker/build-push-action@v3
       with:
         username: ${{github.actor}}
         password: ${{secrets.GITHUB_TOKEN}}
